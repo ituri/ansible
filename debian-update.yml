@@ -1,0 +1,13 @@
+- name: Run apt-get update/upgrade 
+  hosts: pi-weather, pihole
+  tasks:
+
+    - name: Run update
+      apt:
+        update_cache: yes
+        upgrade: dist
+      become: true
+      register: apt
+
+    # - debug: msg="{{ apt.stdout }}"
+    - debug: var=apt.stdout_lines

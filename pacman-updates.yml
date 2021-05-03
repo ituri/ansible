@@ -1,0 +1,12 @@
+- name: Run Pacman update on arch
+  hosts: arch
+  tasks:
+
+    - name: Run upgrade
+      community.general.pacman:
+        update_cache: yes
+        upgrade: yes
+      become: true
+      register: Pacman
+
+    - debug: var=pacman.stdout_lines

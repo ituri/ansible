@@ -1,0 +1,12 @@
+- name: Run sysupgrade to latest snapshot
+  hosts: openbsd
+  tasks:
+
+    - name: Run sysupgrade
+      community.general.sysupgrade:
+        snapshot: yes
+      register: sysupgrade  
+      become: true
+      become_method: doas
+
+    - debug: var=sysupgrade.stdout_lines
