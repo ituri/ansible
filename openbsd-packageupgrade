@@ -10,4 +10,4 @@
       become: true
       become_method: doas
 
-    - debug: var=packupgrade.stdout_lines
+    - debug: var=packupgrade.stdout_lines # Doesn't work quite yet. I suppose I have to find another type here.
