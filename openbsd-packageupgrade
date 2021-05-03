@@ -1,0 +1,13 @@
+- name: Update all packages on OpenBSD host
+  hosts: openbsd
+  tasks:
+
+    - name: Upgrade all installed packages
+      community.general.openbsd_pkg:
+        name: '*'
+        state: latest
+      register: packupgrade  
+      become: true
+      become_method: doas
+
+    - debug: var=packupgrade.stdout_lines
