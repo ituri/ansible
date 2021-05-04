@@ -7,6 +7,6 @@
         update_cache: yes
         upgrade: yes
       become: true
-      register: Pacman
+      register: pacman
 
     - debug: var=pacman.stdout_lines
